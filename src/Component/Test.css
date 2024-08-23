@@ -1,0 +1,53 @@
+.honeycomb {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+
+  .hex-row {
+    display: flex;
+  }
+
+  .hex-row.offset {
+    margin-left: 50px; /* 육각형 절반 너비만큼 왼쪽으로 오프셋 */
+  }
+
+  .hexagon {
+    position: relative;
+    width: 100px;
+    height: 57.74px;
+    background-color: #ffcc00;
+    margin: 28.87px 5px; /* 간격을 위한 마진 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  }
+
+  .hexagon:before {
+    content: "";
+    position: absolute;
+    top: -28.87px; /* 육각형 높이의 절반 */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    transform: translateY(100%);
+  }
+
+  .hexagon:after {
+    content: "";
+    position: absolute;
+    bottom: -28.87px; /* 육각형 높이의 절반 */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    transform: translateY(-100%);
+  }

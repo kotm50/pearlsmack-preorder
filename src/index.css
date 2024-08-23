@@ -1,13 +1,408 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css');
+@font-face {
+  font-family: 'PyeongChangPeace';
+  font-weight: 300;
+  font-style: normal;
+  src: url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChangPeace-Light.eot');
+  src: url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChangPeace-Light.eot?#iefix') format('embedded-opentype'),
+      url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChangPeace-Light.woff2') format('woff2'),
+      url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChangPeace-Light.woff') format('woff'),
+      url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChangPeace-Light.ttf') format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PyeongChangPeace';
+  font-weight: 700;
+  font-style: normal;
+  src: url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChangPeace-Bold.eot');
+  src: url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChangPeace-Bold.eot?#iefix') format('embedded-opentype'),
+      url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChangPeace-Bold.woff2') format('woff2'),
+      url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChangPeace-Bold.woff') format('woff'),
+      url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChangPeace-Bold.ttf') format("truetype");
+  font-display: swap;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  color-scheme: light only;
+}
+
+
+label:hover {
+  cursor: pointer;
+}
+
+.memolock {
+  height:calc(100vh - 100px);
+}
+
+.pplight {
+  font-family: 'PyeongChangPeace';
+  font-weight:400;
+}
+
+
+.ppbold {
+  font-family: 'PyeongChangPeace';
+  font-weight:700;
+}
+
+.ppresponse {
+  font-family: 'PyeongChangPeace';
+  font-weight:400;
+}
+
+@media (min-width:1024px) {
+  .ppresponse {
+    font-weight:700;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: 'NanumSquareNeoBold', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #fafbfc;
+	min-height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
+.ql-container {
+  height:150px!important;
+  background-color:white;
+}
+
+.ql-editor {
+  height:150px!important;
+}
+
+
+.employment .ql-container {
+  height:150px!important;
+  background-color:white;
+}
+
+.employment .ql-editor {
+  height:150px!important;
+}
+
+.blurred-editor .ql-toolbar{
+  display: none;
+}
+
+
+.ql-size-huge {
+  font-size:1.875rem;
+  line-height:2.25rem;
+}
+.ql-size-large {
+  font-size:1.25rem;
+  line-height:1.75rem
+}
+.ql-size-normal {
+  font-size:1rem;
+  line-height:1.5rem;
+}
+
+.ql-size-small {
+  font-size:0.8rem;
+  line-height:1.2rem;
+}
+
+.ql-align-center {
+  text-align: center;
+}
+
+.ql-align-left {
+  text-align:left;
+}
+
+.ql-align-right {
+  text-align:right;
+}
+
+.signature-canvas {
+  width: 100%;
+  min-height:200px;
+  border: 1px solid #e5e7eb;
+  background-color:#fafafa;
+}
+
+.memo > ul > li:before {
+  content:'- ';
+  display:inline;
+}
+
+.memo > ol {
+  margin-left:30px;
+}
+
+.memo > ol > li {
+  list-style:decimal-leading-zero;
+}
+
+.giftcategory, .recommendListItem {
+  word-break:keep-all;
+  white-space:nowrap;
+}
+
+@media (max-width:800px){
+  .giftCategoryMenu {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .giftCategoryMenu::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox에서 화살표를 숨기기 위해 필요합니다 */
+}
+
+#content {
+ min-height:600px;
+}
+
+
+#chkArea, #loginArea {
+  max-width:550px;
+}
+
+
+#joinArea {
+  max-width:550px;
+}
+
+
+
+#cancelArea {
+  max-width:640px;
+}
+
+
+#editArea {
+  width:95%;
+  max-width:480px;
+  margin:0 auto;
+}
+
+#cancelArea {
+  width:95%;
+  max-width:480px;
+  margin:20px auto 0;
+}
+
+
+#addrAPI {
+  max-width:600px;
+  height:600px;
+}
+
+.addrAPIInput {
+  width:100%!important;
+  height:100%!important;
+}
+
+.popupModal {
+  position:absolute;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popupModal > #addrAPI > .addrAPIInput > div {
+  margin:0 auto;
+}
+
+#goodsList {
+  min-height:100vh;
+  overflow: auto;
+}
+
+.pageButton {
+  background-color:white;
+  padding:5px;
+  border-radius:25%;
+  box-shadow:0 0 3px rgba(0, 0, 0, 0.1);
+  text-align:center;
+  font-size:14px;
+}
+
+.selectedPage {
+  background-color: #3b82f6!important;
+  color:#fff!important
+}
+
+.mainCategory {
+  width:96px!important;
+  height:auto!important;
+}
+
+.jumbotron {
+  min-height:400px;
+}
+
+div.footer-top {
+  min-height:180px;
+}
+
+
+.loading-bg {
+  width:100vw;
+  min-height:100vh;
+  background-color: white;
+  opacity:0.7;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index: 99999;
+  overflow: hidden;
+}
+
+.loading-spin {
+  z-index:100000;
+}
+
+.kakaobtn {
+  background-color:#fee500;
+}
+
+.kakaobtn:hover {
+  background-color:#e5cf00;
+}
+
+.popupArea {
+  position:fixed;
+  background-color:white;
+  top:0;
+  left:0;
+  width:480px;
+  height:900px;
+}
+
+.certArea {
+  position:relative;
+  width:540px;
+  padding:2rem;
+  max-width: 100%;
+  min-height:600px;
+}
+
+#alertmodal {
+  width:480px;
+  max-width:100%;
+}
+
+.react-confirm-alert-overlay{
+  width:100%!important;
+  max-width:100vw!important;
+}
+
+#react-confirm-alert{
+  width:100%;
+}
+
+.react-confirm-alert {
+  max-width:100%!important;
+}
+
+#paymodal {
+  width:480px;
+  max-width:95vw;
+  z-index:999;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+}
+
+.react-confirm-alert-overlay {
+  background-color:rgba(255, 255, 255, 0.5)!important;
+}
+
+#popupDom {
+  background-color:transparent!important;
+}
+
+#beforejoin {
+  width:550px;
+  padding:20px;
+  max-width:90%;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  background-color:white;
+  z-index:999;
+}
+
+#renewalmodal {
+  background-color:white;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  width:684px;
+  max-width:90%;
+  height:auto;
+  padding:8px;
+  z-index:99999;
+}
+
+#pointAlertmodal {
+  width:400px;
+  max-width:100%;
+}
+
+.max-z-index {
+  z-index:999999!important;
+}
+
+.mobileFooter {
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+img.employThumbnail {
+  width:auto!important;
+  max-width:10000px!important;
+}
+
+.employQuill > p > strong {
+  font-family:"NanumSquareNeoHeavy";
+}
+
+.employQuill > ul > li:before {
+  display:inline;
+  content:"ㆍ"
 }
